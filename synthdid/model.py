@@ -209,9 +209,7 @@ class SynthDID(Optimize, Plot, Variance, Summary):
         return pd.concat([Y_pre_c_intercept.dot(s_omega), post_outcome], axis=0)
 
     def target_y(self):
-        return self.df.loc[self.pre_term[0] : self.post_term[1], self.treatment].mean(
-            axis=1
-        )
+        return self.df.loc[self.pre_term[0] : self.post_term[1], self.treatment].mean()
 
     def estimated_params(self, model="sdid"):
         Y_pre_c_intercept = self.Y_pre_c.copy()
