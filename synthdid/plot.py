@@ -20,7 +20,7 @@ class Plot(object):
                 }
             )
 
-            pre_point = self.Y_pre_c.index @ self.hat_lambda
+            pre_point = self.Y_pre_c.index.to_numpy() @ self.hat_lambda
 
             pre_sdid = result["sdid"].head(len(self.hat_lambda)) @ self.hat_lambda
             post_sdid = result.loc[self.post_term[0] :, "sdid"].mean()
